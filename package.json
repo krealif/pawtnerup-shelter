@@ -1,0 +1,38 @@
+{
+  "name": "pawtnerup-shelter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.2.2",
+    "@mantine/form": "^7.2.2",
+    "@mantine/hooks": "^7.2.2",
+    "@mantine/notifications": "^7.2.2",
+    "@mantine/nprogress": "^7.2.2",
+    "@next/bundle-analyzer": "^14.0.3",
+    "@react-oauth/google": "^0.12.1",
+    "@types/async-lock": "^1.4.2",
+    "async-lock": "^1.4.0",
+    "axios": "^1.6.2",
+    "lucide-react": "^0.292.0",
+    "next": "14.0.3",
+    "next-auth": "^5.0.0-beta.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "snakecase-keys": "^5.5.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "typescript": "^5"
+  }
+}
