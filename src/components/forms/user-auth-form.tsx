@@ -25,12 +25,12 @@ function GoogleButton() {
 
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
-      const result = await authenticate(
-        codeResponse,
-        searchParams?.get('continue') || '/dogs'
-      );
-
-      if (result == false) {
+      try {
+        await authenticate(
+          codeResponse,
+          searchParams?.get('continue') || '/dogs'
+        );
+      } catch (err) {
         notifications.show({
           title: `Oops!`,
           message: 'Login failed due to an unspecified error.',
