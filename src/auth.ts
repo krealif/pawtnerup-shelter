@@ -3,39 +3,30 @@ import Credentials from 'next-auth/providers/credentials';
 import type { NextAuthConfig } from 'next-auth';
 import { parseJWT } from './lib/utils';
 import { User } from './types';
-import AsyncLock from 'async-lock';
 
 export async function refreshToken(token: any) {
-  const lock = new AsyncLock({ maxPending: 0 });
-  return await lock
-    .acquire('key1', async function () {
-      const refreshUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/shelter/refresh-token`;
-      const refreshResponse = await fetch(refreshUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          refresh_token: token.user.refresh_token,
-        }),
-        next: {
-          revalidate: 3600,
-        },
-      });
+  const refreshUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/shelter/refresh-token`;
+  const refreshResponse = await fetch(refreshUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      refresh_token: token.user.refresh_token,
+    }),
+    next: {
+      revalidate: 1200,
+    },
+  });
 
-      if (!refreshResponse.ok) {
-        return token;
-      }
+  if (!refreshResponse.ok) {
+    return token;
+  }
 
-      const user = await refreshResponse.json();
-      return user;
-    })
-    .then(async function (user: any) {
-      token.user.access_token = user.data.access_token;
-      token.user.refresh_token = user.data.refresh_token;
-      return token;
-    })
-    .catch(function (err) {});
+  const user = await refreshResponse.json();
+  token.user.access_token = user.data.access_token;
+  token.user.refresh_token = user.data.refresh_token;
+  return token;
 }
 
 async function checkRegisterStatus(token: string): Promise<boolean> {
@@ -47,10 +38,12 @@ async function checkRegisterStatus(token: string): Promise<boolean> {
     },
   });
 
-  // Error 404: Not Found
-  if (res.status == 500) {
+  if (res.status == 403) {
     return false;
+  } else if (res.status == 500) {
+    throw Error();
   }
+
   return true;
 }
 
