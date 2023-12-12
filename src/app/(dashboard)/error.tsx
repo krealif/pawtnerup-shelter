@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Container, Text, Title } from '@mantine/core';
+import { Button, Container, Stack, Text, Title } from '@mantine/core';
 
 export default function Error({
   error,
@@ -11,11 +11,13 @@ export default function Error({
 }) {
   return (
     <Container>
-      <Title order={1} size="h2" mt="md">
-        Something went wrong!
-      </Title>
-      <Text>{`${error.name}: ${error.message}`}</Text>
-      <Button onClick={() => reset()}>Try again</Button>
+      <Stack align="center" mt="md">
+        <Title order={1} size="h2">
+          Something went wrong!
+        </Title>
+        <Text>{`${error.name}: ${error.message}`}</Text>
+        <Button onClick={() => reset()}>Try again</Button>
+      </Stack>
     </Container>
   );
 }

@@ -9,7 +9,7 @@ interface LinkCrumbsProps {
 
 export default function Linkcrumbs({ items }: LinkCrumbsProps) {
   return (
-    <Breadcrumbs>
+    <Breadcrumbs mb="md">
       {items.map((item, index) => {
         return index == items.length - 1 ? (
           <Title order={1} size="h2" key={index}>
