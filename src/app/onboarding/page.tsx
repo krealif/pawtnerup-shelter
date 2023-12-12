@@ -10,7 +10,7 @@ import {
 } from '@mantine/core';
 
 import Logos from '@/components/logos';
-import ShelterOnboardingForm from '@/components/forms/shelter-onboarding-form';
+import ShelterOnboardingForm from '@/components/shelter/shelter-onboarding-form';
 import { signOut } from '@/auth';
 
 export const metadata: Metadata = {

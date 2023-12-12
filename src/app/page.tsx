@@ -1,7 +1,7 @@
 import { Container, Stack, Title, Text, Divider } from '@mantine/core';
 
 import Logos from '@/components/logos';
-import UserAuthForm from '@/components/forms/user-auth-form';
+import UserAuthForm from '@/components/shelter/user-auth-form';
 
 export default function HomePage() {
   return (

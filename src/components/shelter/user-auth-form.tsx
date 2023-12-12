@@ -6,7 +6,7 @@ import { Button, Loader } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 
-import { Icons } from '@/components/icons';
+import { Icons } from '../icons';
 import { authenticate } from '@/lib/actions';
 
 export default function UserAuthForm() {
