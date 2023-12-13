@@ -40,7 +40,7 @@ async function checkRegisterStatus(token: string): Promise<boolean> {
 
   if (res.status == 403) {
     return false;
-  } else if (res.status == 500) {
+  } else if (res.status == 500 || res.status == 401) {
     throw Error();
   }
 
