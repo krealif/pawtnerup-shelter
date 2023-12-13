@@ -5,10 +5,9 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 
 export const useRefreshToken = () => {
   const { data: session, update } = useSession();
-
   const refreshToken = async () => {
     try {
-      const refreshUrl = `https://belajaran.free.beeceptor.com/auth`;
+      const refreshUrl = `/auth/shelter/refresh-token`;
       const res = await axios.post(refreshUrl, {
         refresh_token: session?.user.refresh_token,
       });
@@ -17,6 +16,7 @@ export const useRefreshToken = () => {
         await update({
           user: { ...session.user, access_token },
         });
+        return access_token;
       } else signIn();
     } catch (error) {
       signOut();
