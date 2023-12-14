@@ -1,0 +1,30 @@
+.root {
+  position: relative;
+}
+
+.control {
+  border: 2px solid var(--mantine-color-gray-3);
+  border-radius: var(--mantine-radius-md);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.control[data-checked] {
+  border-color: var(--mantine-color-red-6);
+}
+
+.checkboxWrapper {
+  position: absolute;
+  top: var(--mantine-spacing-md);
+  left: var(--mantine-spacing-md);
+  pointer-events: none;
+  display: none;
+}
+
+.root:hover > .checkboxWrapper {
+  display: block;
+}
+
+.checkboxWrapper[data-checked] {
+  display: block;
+}

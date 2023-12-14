@@ -11,6 +11,11 @@ export type BreadcrumbItem = {
   href: string;
 };
 
+export type NavTabsItem = {
+  title: string;
+  href?: string;
+};
+
 export type User = {
   name: string;
   email: string;
