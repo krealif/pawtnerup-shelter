@@ -1,0 +1,7 @@
+runtime: nodejs20
+service: shelter
+
+handlers:
+  - url: /.*
+    secure: always
+    script: auto
