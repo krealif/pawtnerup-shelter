@@ -6,3 +6,10 @@ export function parseJWT(token: string) {
   );
   return tokenParsed;
 }
+
+export function titleCase(str: string) {
+  return str
+    .split(' ')
+    .map((w) => w[0].toUpperCase() + w.substring(1).toLowerCase())
+    .join(' ');
+}

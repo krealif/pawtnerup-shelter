@@ -13,3 +13,23 @@ export const shelterSchema = z.object({
 });
 
 export type Shelter = z.infer<typeof shelterSchema>;
+
+const sterilizationStatus = [
+  'VACCINATED',
+  'NOT_STERILIZED',
+  'NEUTERED',
+  'SPAYED',
+] as const;
+
+export const dogSchema = z.object({
+  id: z.number().optional(),
+  name: z.string().min(3).max(128),
+  gender: z.enum(['MALE', 'FEMALE']),
+  breed: z.string().min(3).max(128),
+  estimateAge: z.number().min(1).max(99),
+  sterilizationStatus: z.enum(sterilizationStatus),
+  rescueStory: z.string().min(3).max(2000),
+  media: z.any().refine((files: File[]) => files.length > 0, 'Photos required'),
+});
+
+export type Dog = z.infer<typeof dogSchema>;

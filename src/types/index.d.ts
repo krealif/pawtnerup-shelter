@@ -20,6 +20,11 @@ export type User = {
   refresh_token: string;
 };
 
+export type Breed = {
+  id: number;
+  name: string;
+};
+
 interface ApiResponse<T> {
   data: T;
 }

@@ -7,6 +7,7 @@ import { Notifications } from '@mantine/notifications';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import '@mantine/nprogress/styles.css';
+import '@mantine/dropzone/styles.css';
 import { theme, poppins } from '@/theme';
 import { HandleOnComplete } from '@/lib/router-events';
 import { auth } from '@/auth';
