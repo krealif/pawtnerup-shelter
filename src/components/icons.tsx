@@ -1,13 +1,18 @@
 import {
   ArrowRight,
   Dog,
+  FileText,
   Home,
+  Image,
   LogOut,
   LucideIcon,
   LucideProps,
   Menu,
   Plus,
   Settings,
+  Trash2,
+  PawPrint,
+  Pencil,
 } from 'lucide-react';
 
 export type Icon = LucideIcon;
@@ -16,10 +21,15 @@ export const Icons = {
   add: Plus,
   arrowRight: ArrowRight,
   dog: Dog,
+  fileText: FileText,
   home: Home,
+  image: Image,
   logout: LogOut,
   menu: Menu,
+  paw: PawPrint,
+  pencil: Pencil,
   settings: Settings,
+  trash: Trash2,
   google: ({ size, ...props }: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
